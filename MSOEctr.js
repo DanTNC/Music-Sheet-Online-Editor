@@ -4,11 +4,11 @@ var Dstate=5; //Mn, n=0~9. n=5 for N=1, n+1=>N*2, n-1=>N/2. 1n=N*(1+1/2), 2n=N*(
 var key = () => {
 	switch(event.keyCode){
 		case 44:
-			if(Dstate>0)
+			if(Dstate%10>0)
 				Dstate=Dstate-1;
 			break;
 		case 46:
-			if(Dstate<9)
+			if(Dstate%10<9)
 				Dstate=Dstate+1;
 			break;
 		case 60:
