@@ -25,6 +25,7 @@ var key = () => {
 		default:
 	}
 	console.log(Dstate);
+	console.log(Tstate);
 	console.log(event.keyCode);
 };
 
