@@ -1,4 +1,4 @@
-var Tstate=0; //0:A, 1:A  2:a  3:a'
+var Tstate=1; //0:A, 1:A  2:a  3:a'
 var Dstate=5; //Mn, n=0~9. n=5 for N=1, n+1=>N*2, n-1=>N/2. 1n=N*(1+1/2), 2n=N*(1+1/2+1/4)... and so on
 
 var key = () => {
@@ -19,7 +19,9 @@ var key = () => {
 			Dstate=Dstate+10;
 			break;
 	// ----------Change Dstate-----------
-		
+		case 47:
+			Tstate=(Tstate==3)?0:Tstate+1;
+			break;
 		default:
 	}
 	console.log(Dstate);
