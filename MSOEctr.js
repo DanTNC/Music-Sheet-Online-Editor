@@ -26,4 +26,10 @@ var ChgDstt = () => {
 
 window.onload = () => {
 	document.onkeypress=ChgDstt;
+	a();
 }
+
+var a = () => {
+	console.log("123132");
+}
+
