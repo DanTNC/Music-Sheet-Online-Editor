@@ -1,5 +1,7 @@
 var Tstate=1; //0:A, 1:A  2:a  3:a'
 var Dstate=5; //Mn, n=0~9. n=5 for N=1, n+1=>N*2, n-1=>N/2. 1n=N*(1+1/2), 2n=N*(1+1/2+1/4)... and so on
+var CrtPos=0;
+
 
 var key = () => {
 	switch(event.keyCode){
@@ -22,6 +24,7 @@ var key = () => {
 		case 47:
 			Tstate=(Tstate==3)?0:Tstate+1;
 			break;
+	// ----------Change Tstate-----------
 		default:
 	}
 	console.log(Dstate);
