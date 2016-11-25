@@ -3,7 +3,6 @@ var Dstate=0.0; //n=-5~4. n=0 for N=1, n+1=>N*2, n-1=>N/2. n.1=N*(1+1/2), n.2=N*
 
 var ChgDstt = (kc) => {
 	switch(kc){
-		console.log(kc);
 		case 44:
 			if(Dstate>-5)
 				Dstate=Dstate-1;
