@@ -12,7 +12,7 @@ var key = () => {
 				Dstate=Dstate+1.0;
 			break;
 		case 60:
-			if((Dstate-floor(Dstate))!=0.0)
+			if((Dstate-Math.floor(Dstate))!=0.0)
 				Dstate=Dstate-0.1;
 			break;
 		case 62:
