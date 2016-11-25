@@ -24,5 +24,5 @@ var ChgDstt = (kc) => {
 };
 
 window.onload = () => {
-	document.onkeypress=ChgDstt;
+	document.onkeypress=ChgDstt(event.keycode);
 }
