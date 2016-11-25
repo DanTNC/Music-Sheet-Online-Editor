@@ -20,7 +20,7 @@ var ChgDstt = (kc) => {
 			break;
 		default:
 	}
-	Console.log(Dstate);
+	console.log(Dstate);
 };
 
 window.onload = () => {
