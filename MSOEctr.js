@@ -1,8 +1,13 @@
-var abcstr="$$A $b'$c $a$"; console.log(abcstr);
+var abcstr="";
 var Tstate=1; //0:A, 1:A  2:a  3:a'
 var Dstate=5; //Mn, n=0~9. n=5 for N=1, n+1=>N*2, n-1=>N/2. 1n=N*(1+1/2), 2n=N*(1+1/2+1/4)... and so on
 var CrtPos=0;
 
+
+var mvpos = (md=0) => {
+	if(md==1)
+
+}
 
 var key = () => { // only keypress can tell if "shift" is pressed at the same time
 	switch(event.keyCode){
