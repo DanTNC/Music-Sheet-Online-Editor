@@ -39,6 +39,7 @@ var move = () => {
 	if(event.keyCode==39){
 		CrtPos=(CrtPos==500)?500:CrtPos+1;
 	}
+	console.log(CrtPos);
 }
 
 window.onload = () => {
