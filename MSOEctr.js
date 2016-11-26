@@ -1,13 +1,25 @@
-var abcstr="";
+var abcstr="$A$D,";
 var Tstate=1; //0:A, 1:A  2:a  3:a'
 var Dstate=5; //Mn, n=0~9. n=5 for N=1, n+1=>N*2, n-1=>N/2. 1n=N*(1+1/2), 2n=N*(1+1/2+1/4)... and so on
 var CrtPos=0;
 
 
-var mvpos = (md=0) => {
-	if(md==1)
-
-}
+var mvpos = (md) => {
+	if(md==0){
+		for(var i=CrtPos-1;i>=0;i--){
+			if(abcstr[i]=="$"){
+				return i;
+			}
+		}
+	}
+	if(md==1){
+		for(var i=CrtPos+1;i<=abcstr.length;i++){
+			if(abcstr[i]=="$"){
+				return i;
+			}
+		}
+	}
+};
 
 var key = () => { // only keypress can tell if "shift" is pressed at the same time
 	switch(event.keyCode){
@@ -31,6 +43,10 @@ var key = () => { // only keypress can tell if "shift" is pressed at the same ti
 			Tstate=(Tstate==3)?0:Tstate+1;
 			break;
 	// ----------Change Tstate-----------
+		case 113:
+			abcstr=abcstr.substring(0,CrtPos-1)+abcstr.substring(mvpos(1),abcstr.length);
+			break;
+	// ----------Delete------------------
 		default:
 	}
 	console.log(Dstate);
@@ -39,22 +55,11 @@ var key = () => { // only keypress can tell if "shift" is pressed at the same ti
 };
 
 var move = () => { // "left" and "right" can't be detected in keypress
-	var delta=0;
 	if(event.keyCode==37){
-		for(var i=CrtPos-1;i>=0;i--){
-			if(abcstr[i]=="$"){
-				CrtPos=i;
-				break;
-			}
-		}
+		CrtPos=mvpos(0);
 	}
 	if(event.keyCode==39){
-		for(var i=CrtPos+1;i<=abcstr.length;i++){
-			if(abcstr[i]=="$"){
-				CrtPos=i;
-				break;
-			}
-		}
+		CrtPos=mvpos(1);
 	}
 	console.log(CrtPos);
 }
