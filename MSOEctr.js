@@ -1,9 +1,10 @@
+var abcstr="$$A $b'$c $a$"; console.log(abcstr);
 var Tstate=1; //0:A, 1:A  2:a  3:a'
 var Dstate=5; //Mn, n=0~9. n=5 for N=1, n+1=>N*2, n-1=>N/2. 1n=N*(1+1/2), 2n=N*(1+1/2+1/4)... and so on
 var CrtPos=0;
 
 
-var key = () => {
+var key = () => { // only keypress can tell if "shift" is pressed at the same time
 	switch(event.keyCode){
 		case 44:
 			if(Dstate%10>0)
@@ -32,12 +33,23 @@ var key = () => {
 	console.log(event.keyCode);
 };
 
-var move = () => {
+var move = () => { // "left" and "right" can't be detected in keypress
+	var delta=0;
 	if(event.keyCode==37){
-		CrtPos=(CrtPos==0)?0:CrtPos-1;
+		for(var i=CrtPos-1;i>=0;i--){
+			if(abcstr[i]=="$"){
+				CrtPos=i;
+				break;
+			}
+		}
 	}
 	if(event.keyCode==39){
-		CrtPos=(CrtPos==500)?500:CrtPos+1;
+		for(var i=CrtPos+1;i<=abcstr.length;i++){
+			if(abcstr[i]=="$"){
+				CrtPos=i;
+				break;
+			}
+		}
 	}
 	console.log(CrtPos);
 }
