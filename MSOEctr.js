@@ -19,6 +19,7 @@ var mvpos = (md) => {
 			}
 		}
 	}
+	return CrtPos;
 };
 
 var key = () => { // only keypress can tell if "shift" is pressed at the same time
