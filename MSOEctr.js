@@ -45,6 +45,7 @@ var key = () => { // only keypress can tell if "shift" is pressed at the same ti
 	// ----------Change Tstate-----------
 		case 113:
 			abcstr=abcstr.substring(0,CrtPos-1)+abcstr.substring(mvpos(1),abcstr.length);
+			console.log(abcstr);
 			break;
 	// ----------Delete------------------
 		default:
