@@ -32,7 +32,16 @@ var key = () => {
 	console.log(event.keyCode);
 };
 
+var move = () => {
+	if(event.keyCode==37){
+		CrtPos=(CrtPos==0)?0:CrtPos-1;
+	}
+	if(event.keyCode==39){
+		CrtPos=(CrtPos==500)?500:CrtPos+1;
+	}
+}
+
 window.onload = () => {
 	document.onkeypress=key;
-
+	document.onkeydown=move;
 }
